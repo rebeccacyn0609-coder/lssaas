@@ -778,7 +778,7 @@ export interface AccountBalance {
 
 export const DEMO_ACCOUNT = {
   username: 'demo',
-  password: 'demo123',
+  password: 'lsyz123',
   companyName: '汇特科技（演示）',
 };
 

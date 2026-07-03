@@ -53,7 +53,7 @@ export default function LoginPage({ onLoginSuccess, onGoApply }: LoginPageProps)
         message.success('登录成功');
         onLoginSuccess();
       } else {
-        message.error('账号或密码错误，演示账号：demo / demo123');
+        message.error(`账号或密码错误，演示账号：${DEMO_ACCOUNT.username}`);
       }
       setLoading(false);
     }, 400);
@@ -104,7 +104,7 @@ export default function LoginPage({ onLoginSuccess, onGoApply }: LoginPageProps)
               layout="vertical"
               className="auth-form auth-form--login auth-stage-form"
               onFinish={handleFinish}
-              initialValues={{ username: 'demo', password: 'demo123' }}
+              initialValues={{ username: DEMO_ACCOUNT.username }}
             >
               <Form.Item
                 name="username"
@@ -126,13 +126,6 @@ export default function LoginPage({ onLoginSuccess, onGoApply }: LoginPageProps)
                 </Button>
               </Form.Item>
             </Form>
-
-            <div className="auth-stage-demo" role="note">
-              <SafetyCertificateOutlined aria-hidden />
-              <Text type="secondary">
-                演示账号：<Text code>demo</Text> / <Text code>demo123</Text>
-              </Text>
-            </div>
 
             <div className="auth-stage-footer">
               <Text type="secondary">还没有企业账号？</Text>
