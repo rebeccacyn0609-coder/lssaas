@@ -109,6 +109,10 @@
   border-top: 1px solid var(--saas-border);
 }
 
+.saas-menu--grouped .ant-menu-item-group-list {
+  padding: 0;
+}
+
 .saas-menu {
   flex: 1;
   border-inline-end: none !important;
@@ -122,6 +126,7 @@
   width: 100%;
   height: 40px !important;
   line-height: 40px !important;
+  padding-inline: 12px !important;
 }
 
 .saas-menu .ant-menu-item-selected {
@@ -132,6 +137,36 @@
 
 .saas-menu .ant-menu-item-selected .anticon {
   color: var(--saas-primary);
+}
+
+.saas-menu .ant-menu-submenu {
+  margin: 4px 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+.saas-menu .ant-menu-submenu-title {
+  margin: 0 !important;
+  width: 100% !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  border-radius: var(--saas-radius) !important;
+  padding-inline: 12px !important;
+  display: flex;
+  align-items: center;
+}
+
+.saas-menu .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  color: var(--saas-primary) !important;
+  font-weight: 600;
+}
+
+.saas-menu .ant-menu-submenu-selected > .ant-menu-submenu-title .anticon {
+  color: var(--saas-primary);
+}
+
+.saas-menu .ant-menu-sub .ant-menu-item {
+  padding-left: 44px !important;
 }
 
 .saas-main {

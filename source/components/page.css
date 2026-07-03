@@ -1577,16 +1577,6 @@
   background: linear-gradient(180deg, #f7faff 0%, #f5f8ff 100%);
 }
 
-.saas-menu .ant-menu-submenu-title {
-  margin-inline: 8px;
-  width: calc(100% - 16px);
-  border-radius: var(--saas-radius-md, 6px);
-}
-
-.saas-menu .ant-menu-sub .ant-menu-item {
-  padding-left: 44px !important;
-}
-
 .placeholder-page {
   display: flex;
   flex-direction: column;

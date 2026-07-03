@@ -17,6 +17,10 @@
       "kind": "source"
     },
     {
+      "path": "components/apiDocShared.ts",
+      "kind": "source"
+    },
+    {
       "path": "components/ApiKeyDetailDrawer.tsx",
       "kind": "source"
     },
@@ -214,6 +218,10 @@
     },
     {
       "path": "pages/data-dashboard.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/doc-get-api-key.tsx",
       "kind": "source"
     },
     {

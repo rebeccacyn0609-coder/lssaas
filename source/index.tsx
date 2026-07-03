@@ -57,6 +57,7 @@ const ApiKeysPage = lazy(() => import('./pages/api-keys'));
 const UsageQueryPage = lazy(() => import('./pages/usage-query'));
 const RechargeRecordsPage = lazy(() => import('./pages/recharge-records'));
 const ApiDocsPage = lazy(() => import('./pages/api-docs'));
+const DocGetApiKeyPage = lazy(() => import('./pages/doc-get-api-key'));
 const DataDashboardPage = lazy(() => import('./pages/data-dashboard'));
 const SystemDepartmentsPage = lazy(() => import('./pages/system-departments'));
 const SystemUsersPage = lazy(() => import('./pages/system-users'));
@@ -80,13 +81,14 @@ const PLATFORM_ADMIN_PAGES = new Set([
 ]);
 const TENANT_ADMIN_PAGES = new Set(['tenant-list', 'tenant-packages']);
 const MESSAGE_ADMIN_PAGES = new Set(['announcements']);
+const DOC_PAGES = new Set(['doc-get-api-key', 'api-docs']);
 const APP_PAGES = new Set([
   'model-marketplace',
   'data-dashboard',
   'api-keys',
   'usage-query',
   'recharge-records',
-  'api-docs',
+  ...DOC_PAGES,
   'system-departments',
   'system-users',
   'system-roles',
@@ -103,6 +105,7 @@ const route = defineHashPageRoute(
     { id: 'api-keys', title: '企业密钥' },
     { id: 'usage-query', title: '用量查询' },
     { id: 'recharge-records', title: '充值记录' },
+    { id: 'doc-get-api-key', title: '获取密钥' },
     { id: 'api-docs', title: '接口文档' },
     { id: 'system-departments', title: '部门管理' },
     { id: 'system-users', title: '人员管理' },
@@ -122,6 +125,8 @@ const menuLabels: Record<string, string> = {
   'api-keys': '企业密钥',
   'usage-query': '用量查询',
   'recharge-records': '充值记录',
+  'doc-get-api-key': '获取密钥',
+  'api-docs': '接口文档',
   'system-departments': '部门管理',
   'system-users': '人员管理',
   'system-roles': '角色管理',
@@ -133,6 +138,8 @@ const menuLabels: Record<string, string> = {
 };
 
 const menuParents: Partial<Record<string, string>> = {
+  'doc-get-api-key': '文档说明',
+  'api-docs': '文档说明',
   'system-departments': '系统管理',
   'system-users': '系统管理',
   'system-roles': '系统管理',
@@ -151,7 +158,15 @@ const menuItems: MenuProps['items'] = [
       { key: 'api-keys', icon: <KeyOutlined />, label: '企业密钥' },
       { key: 'usage-query', icon: <BarChartOutlined />, label: '用量查询' },
       { key: 'recharge-records', icon: <WalletOutlined />, label: '充值记录' },
-      { key: 'api-docs', icon: <BookOutlined />, label: '接口文档' },
+      {
+        key: 'docs',
+        icon: <BookOutlined />,
+        label: '文档说明',
+        children: [
+          { key: 'doc-get-api-key', icon: <SafetyCertificateOutlined />, label: '获取密钥' },
+          { key: 'api-docs', icon: <FileTextOutlined />, label: '接口文档' },
+        ],
+      },
       {
         key: 'system',
         icon: <SettingOutlined />,
@@ -228,7 +243,7 @@ function SidebarNav({
         onOpenChange={onOpenChange}
         items={menuItems}
         onClick={({ key }) => {
-          if (key === 'system' || key === 'platform-tenant' || key === 'platform-message') return;
+          if (key === 'docs' || key === 'system' || key === 'platform-tenant' || key === 'platform-message') return;
           onNavigate(key);
         }}
         className="saas-menu saas-menu--grouped"
@@ -241,13 +256,14 @@ export default function SaasOpenPlatformApp() {
   const { page, setPage } = useHashPage(route);
   const [session, setSessionState] = useState<{ companyName: string } | null>(() => getSession());
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [menuOpenKeys, setMenuOpenKeys] = useState<string[]>(['system', 'platform-tenant', 'platform-message']);
+  const [menuOpenKeys, setMenuOpenKeys] = useState<string[]>(['docs', 'system', 'platform-tenant', 'platform-message']);
   const screens = Grid.useBreakpoint();
   const isCompact = screens.lg === false;
 
   useEffect(() => {
     setMenuOpenKeys((prev) => {
       const next = new Set(prev);
+      if (DOC_PAGES.has(page)) next.add('docs');
       if (SYSTEM_ADMIN_PAGES.has(page)) next.add('system');
       if (TENANT_ADMIN_PAGES.has(page)) next.add('platform-tenant');
       if (MESSAGE_ADMIN_PAGES.has(page)) next.add('platform-message');
@@ -339,6 +355,8 @@ export default function SaasOpenPlatformApp() {
         return <UsageQueryPage />;
       case 'recharge-records':
         return <RechargeRecordsPage />;
+      case 'doc-get-api-key':
+        return <DocGetApiKeyPage />;
       case 'api-docs':
         return <ApiDocsPage />;
       case 'system-departments':
