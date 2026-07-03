@@ -96,14 +96,22 @@ export default function ApiDocsPage() {
       width: 160,
     },
     {
-      title: '限制',
-      dataIndex: 'limit',
+      title: '说明',
+      dataIndex: 'description',
     },
   ];
 
   const limitRows = [
-    { key: '1', dimension: '最大上下文窗口', limit: '1M Tokens' },
-    { key: '2', dimension: '最大输出长度', limit: '128K Tokens' },
+    {
+      key: '1',
+      dimension: '单次请求',
+      description: '默认遵循各模型自身的上下文与输出上限，具体以接口调用时的实际约束为准。',
+    },
+    {
+      key: '2',
+      dimension: '调用频率',
+      description: '默认遵循各模型及上游渠道的 RPM、TPM 等限流策略，不同模型可能有所不同。',
+    },
   ];
 
   return (
@@ -244,7 +252,9 @@ export default function ApiDocsPage() {
 
       <Card bordered={false} className="page-card api-docs-section-card" style={{ marginBottom: 16 }}>
         <Title level={5} style={{ marginTop: 0 }}>限流规则</Title>
-        <Paragraph style={{ marginBottom: 8 }}>单次请求限制：</Paragraph>
+        <Paragraph style={{ marginBottom: 8 }}>
+          平台默认根据各模型自身规格执行限流，不同模型的单次请求约束与调用频率可能不同。
+        </Paragraph>
         <Table
           rowKey="key"
           columns={limitColumns}

@@ -38,7 +38,7 @@ export default function ApplyPage({ onBackLogin, onSubmitted }: ApplyPageProps) 
       });
       setSubmitted(true);
       setLoading(false);
-      message.success('申请已提交，运营管理端将每 5 秒轮询获取申请信息');
+      message.success('申请已提交，请等待平台审核');
       onSubmitted();
     }, 500);
   };
@@ -52,7 +52,7 @@ export default function ApplyPage({ onBackLogin, onSubmitted }: ApplyPageProps) 
             <Result
               status="success"
               title="申请已提交"
-              subTitle="您的企业接入申请已保存，运营管理端将轮询获取并进行后续处理。审核通过后将为您创建企业账号。"
+              subTitle="您的企业接入申请已成功提交，当前待平台审核。审核通过后，我们将为您开通企业账号，并通过联系邮箱通知结果。"
               extra={[
                 <Button type="primary" key="login" onClick={onBackLogin}>
                   返回登录
@@ -65,7 +65,7 @@ export default function ApplyPage({ onBackLogin, onSubmitted }: ApplyPageProps) 
               className="apply-steps"
               items={[
                 { title: '填写申请' },
-                { title: '运营审核' },
+                { title: '平台审核' },
                 { title: '开通账号' },
               ]}
             />
@@ -83,7 +83,7 @@ export default function ApplyPage({ onBackLogin, onSubmitted }: ApplyPageProps) 
           <div className="auth-brand-logo">灵</div>
           <div>
             <Title level={3} className="auth-brand-title">企业接入申请</Title>
-            <Text type="secondary">新企业初次访问需填写申请信息，提交后由运营端处理</Text>
+            <Text type="secondary">新企业请填写基本信息，提交后进入平台审核流程</Text>
           </div>
         </div>
 
@@ -153,7 +153,7 @@ export default function ApplyPage({ onBackLogin, onSubmitted }: ApplyPageProps) 
             </div>
 
             <Paragraph type="secondary" className="apply-hint">
-              提交后申请信息将保留，运营管理端每 5 秒轮询主动获取；SaaS 管理端支持列表展示与后续处理。
+              提交后将进入平台审核。请确保联系方式准确，审核结果将通过邮箱通知您。
             </Paragraph>
 
             <Button type="primary" htmlType="submit" icon={<SendOutlined />} loading={loading} size="large">
