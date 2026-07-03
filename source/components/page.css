@@ -1506,8 +1506,43 @@
   padding: 20px;
 }
 
+.api-docs-steps {
+  margin-left: 4px;
+}
+
+.api-docs-steps .ant-steps-item-description {
+  max-width: none;
+  padding-bottom: 4px;
+}
+
 .api-docs-table {
   margin-top: 8px;
+}
+
+.api-docs-credential-table .api-docs-credential-col-desc,
+.api-docs-credential-table td.api-docs-credential-col-desc {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.api-docs-credential-desc {
+  display: block;
+  line-height: 1.6;
+}
+
+.api-docs-credential-table .api-docs-credential-col-sample,
+.api-docs-credential-table td.api-docs-credential-col-sample {
+  white-space: nowrap !important;
+  width: 1%;
+}
+
+.api-docs-credential-sample,
+.api-docs-credential-sample code {
+  white-space: nowrap !important;
+}
+
+.api-docs-credential-table .ant-table-content {
+  overflow-x: auto;
 }
 
 .api-docs-table .ant-table-thead > tr > th {
