@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "format": "axhub-published-source",
+  "sourceRoot": "source",
+  "entry": "index.tsx",
+  "files": [
+    {
+      "path": "components/admin/AdminPlaceholderPage.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/admin/applyService.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/antdTheme.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/ApiKeyDetailDrawer.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/ApiKeyTestModal.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/anthropic.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/baichuan.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/cohere.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/deepseek.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/default.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/doubao.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/gemini.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/glm.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/hunyuan.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/kimi.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/meta.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/minimax.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/mistral.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/openai.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/qwen.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/spark.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/stepfun.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/wenxin.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/xai.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/assets/vendors/yi.svg",
+      "kind": "source"
+    },
+    {
+      "path": "components/AuthBackdrop.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/dataDashboardStats.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/exportUsageLogs.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/lobeIconCdn.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/mockData.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/modelOfficialPrice.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/page.css",
+      "kind": "source"
+    },
+    {
+      "path": "components/PageHeader.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/SelfApiKeyModal.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/services.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/SystemAdminPlaceholderPage.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/tableEllipsisCell.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/tableTimeColumn.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/usageLogDisplay.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/UsageLogPanel.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "components/vendorAccent.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/vendorIconSources.ts",
+      "kind": "source"
+    },
+    {
+      "path": "components/VendorLogo.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "index.tsx",
+      "kind": "entry"
+    },
+    {
+      "path": "pages/admin/announcements.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/admin/dictionary.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/admin/enterprise-applications.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/admin/tenant-list.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/admin/tenant-packages.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/api-docs.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/api-keys.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/apply.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/data-dashboard.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/login.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/model-marketplace.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/recharge-records.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/system-departments.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/system-roles.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/system-users.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "pages/usage-query.tsx",
+      "kind": "source"
+    },
+    {
+      "path": "style.css",
+      "kind": "source"
+    }
+  ]
+}
