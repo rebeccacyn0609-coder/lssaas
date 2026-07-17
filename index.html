@@ -47,6 +47,9 @@
         window.React = bootstrap.React;
         window.ReactDOM = bootstrap.ReactDOM;
         await loadEntryScript('./index.js');
+        if (typeof UserComponent !== 'undefined') {
+          window.UserComponent = UserComponent;
+        }
         var Component = window.UserComponent && (window.UserComponent.Component || window.UserComponent.default || window.UserComponent);
         if (!Component) throw new Error('[Html Template] 入口脚本未暴露 UserComponent');
         bootstrap.renderComponent(Component);
