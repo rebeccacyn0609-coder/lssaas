@@ -2570,6 +2570,58 @@
   color: var(--saas-ink-muted);
 }
 
+.model-capability-tags {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.model-capability-tags.is-overflow .model-capability-tag:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.model-capability-tag.ant-tag {
+  margin: 0;
+  padding: 0 8px;
+  height: 22px;
+  line-height: 20px;
+  font-size: 12px;
+  color: var(--saas-primary);
+  background: var(--saas-primary-soft);
+  border: none;
+  border-radius: 4px;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+.model-capability-tags--drawer {
+  flex: 1;
+  min-width: 0;
+}
+
+.model-drawer-capability-tags {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.model-drawer-capability-tags-label {
+  flex-shrink: 0;
+  font-size: 12px;
+  line-height: 22px;
+  color: var(--saas-ink-muted);
+}
+
 .model-market-card-intro-wrap {
   flex: 1;
   min-height: 0;

@@ -1,6 +1,11 @@
 import type { ModelPricingItem, PromptPriceGroup } from '../../untitled/components/mockData';
 import { getModelVendorTypeLabel } from '../../untitled/components/mockData';
 import {
+  formatModelSpecValue,
+  formatModelYearMonth,
+  type MarketplaceModel,
+} from './modelMarketplaceMeta';
+import {
   formatPerCallDisplayPrice,
   formatTokenDisplayPrice,
   type TokenPriceDisplayUnit,
@@ -181,12 +186,16 @@ export function getModelBasicInfoRows(model: ModelPricingItem): ModelBasicInfoRo
 }
 
 /** 详情正文「基本信息」字段（模型名称已在抽屉标题展示） */
-export function getModelDetailMetaRows(model: ModelPricingItem): ModelBasicInfoRow[] {
+export function getModelDetailMetaRows(model: MarketplaceModel): ModelBasicInfoRow[] {
   return [
     { label: '厂商类型', value: getModelVendorTypeLabel(model.vendorType) },
     { label: '模型类型', value: getModelTypeLabel(model.modelType) },
+    { label: '上下文', value: formatModelSpecValue(model.contextWindow) },
+    { label: '最大输入', value: formatModelSpecValue(model.maxInput) },
+    { label: '最大输出', value: formatModelSpecValue(model.maxOutput) },
     { label: '计费模式', value: getBillingModeLabel(model.billingMode) },
-    { label: '更新日期', value: formatModelUpdatedDate(model.updatedAt) },
+    { label: '模型发布', value: formatModelYearMonth(model.releasedAt) },
+    { label: '知识截止时间', value: formatModelYearMonth(model.knowledgeCutoffAt) },
   ];
 }
 

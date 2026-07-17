@@ -62,8 +62,8 @@ function ModelNameCopyable({
 }
 
 import { PageHeader } from '../components/PageHeader';
+import { ModelCapabilityTags } from '../components/ModelCapabilityTags';
 import {
-  formatModelUpdatedDate,
   getBillingModeLabel,
   getCardPriceDisplay,
   getModelDetailMetaRows,
@@ -79,6 +79,7 @@ import {
   type TierOfficialPriceSection,
   type TokenPriceUnit,
 } from '../components/modelOfficialPrice';
+import { formatModelYearMonth, getModelCapabilityTags } from '../components/modelMarketplaceMeta';
 import {
   getModelVendorTypeLabel,
   mockModelVendorTypes,
@@ -220,6 +221,7 @@ function ModelDetailDrawer({
   const priceSectionTitle = getOfficialPriceSectionTitle(model.billingMode, tokenUnit);
   const remark = model.remark?.trim();
   const isTierPricing = tierSections.length > 0;
+  const capabilityTags = getModelCapabilityTags(model);
 
   return (
     <Drawer
@@ -250,6 +252,12 @@ function ModelDetailDrawer({
               {getModelTypeLabel(model.modelType)}
             </Tag>
           </div>
+          {capabilityTags.length > 0 ? (
+            <div className="model-drawer-capability-tags">
+              <span className="model-drawer-capability-tags-label">能力标签</span>
+              <ModelCapabilityTags tags={capabilityTags} className="model-capability-tags--drawer" />
+            </div>
+          ) : null}
           {remark ? (
             <div className="model-drawer-intro-box">
               <span className="model-drawer-intro-label">模型简介</span>
@@ -524,6 +532,7 @@ export default function ModelMarketplacePage() {
           {filtered.map((model) => {
             const vendorClass = getVendorAccentClass(model.vendorType);
             const tierPricing = isTierPricingModel(model);
+            const capabilityTags = getModelCapabilityTags(model);
             return (
               <article
                 key={model.id}
@@ -576,6 +585,10 @@ export default function ModelMarketplacePage() {
                     </div>
                   </div>
 
+                  {capabilityTags.length > 0 ? (
+                    <ModelCapabilityTags tags={capabilityTags} />
+                  ) : null}
+
                   {model.remark?.trim() ? (
                     <div className="model-market-card-intro-wrap">
                       <Paragraph type="secondary" className="model-market-card-intro" ellipsis={{ rows: 2 }}>
@@ -589,7 +602,7 @@ export default function ModelMarketplacePage() {
 
                 <footer className="model-market-card-footer">
                   <span className="model-market-card-updated">
-                    更新 {formatModelUpdatedDate(model.updatedAt)}
+                    发布 {formatModelYearMonth(model.releasedAt)}
                   </span>
                   <span className="model-market-card-link">
                     查看详情

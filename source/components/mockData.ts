@@ -38,7 +38,10 @@ export interface StoredApplyRecord extends EnterpriseApplyForm {
   processStatus: EnterpriseApplyProcessStatus;
 }
 
-export type { ModelPricingItem } from '../../untitled/components/mockData';
+import {
+  enrichMarketplaceModel,
+  type MarketplaceModel,
+} from './modelMarketplaceMeta';
 import type { ModelPricingItem } from '../../untitled/components/mockData';
 import {
   mockModels as baseMockModels,
@@ -47,6 +50,7 @@ import {
   getModelVendorTypeLabel,
 } from '../../untitled/components/mockData';
 
+export type { ModelPricingItem } from '../../untitled/components/mockData';
 export { mockModelVendorTypes, getModelVendorTypeLabel };
 
 /** 模型广场补充数据：覆盖更多厂商与模型类型 */
@@ -693,13 +697,15 @@ const mockMarketplaceExtraModels: ModelPricingItem[] = [
 ];
 
 /** SaaS 模型广场：基础模型 + 阶梯价格示例 + 广场补充模型 */
-export const mockModels = [
+const mockModelsRaw = [
   ...baseMockModels,
   ...mockModelsForPricingCopy.filter(
     (model) => model.tierPricing && !baseMockModels.some((item) => item.id === model.id),
   ),
   ...mockMarketplaceExtraModels,
 ];
+
+export const mockModels: MarketplaceModel[] = mockModelsRaw.map(enrichMarketplaceModel);
 
 export interface ApiKeyRow {
   id: string;
